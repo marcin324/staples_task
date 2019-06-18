@@ -74,6 +74,10 @@ class App extends Component {
     }
   };
 
+  handleSearchText = e => {
+    this.setState({ searchText: e.target.value });
+  };
+
   handleShowModal = id => {
     let products = [...this.state.products];
     const product = products.filter(product => product.id === id);
@@ -103,7 +107,7 @@ class App extends Component {
         <Form
           searchText={this.state.searchText}
           handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
+          handleSearchText={this.handleSearchText}
           onClick={this.componentDidMount.bind(this)}
         />
         <Cart shoppingCart={this.state.shoppingCart} />
