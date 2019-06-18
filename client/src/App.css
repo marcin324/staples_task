@@ -52,6 +52,34 @@ body {
   background-color: #2386c0;
 }
 
+.cart {
+  position: absolute;
+  top: 35px;
+  right: 60px;
+}
+
+.cart_number {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #ff0033;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 15px;
+}
+
+.fa-shopping-cart {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  z-index: -1;
+  font-size: 40px;
+  color: #0277bd;
+}
+
 .overlay {
   display: none;
   position: fixed;
