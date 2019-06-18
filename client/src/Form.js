@@ -2,7 +2,7 @@ import React from "react";
 
 const Form = props => {
   return (
-    <div className="search_form">
+    <div className="form">
       <form onSubmit={e => props.handleSubmit(e)}>
         <label htmlFor="searchText">Search product:</label>
         <input
