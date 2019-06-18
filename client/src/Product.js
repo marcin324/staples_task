@@ -4,6 +4,14 @@ import CartForm from "./CartForm";
 const Product = props => {
   const activeInput = props.activeInput !== "" ? props.activeInput : "";
 
+  const modal = props.isActive ? "show" : "";
+  const overlay = props.isActive ? "show" : "";
+  const close = props.isActive ? "btn_close" : "";
+  const img = props.isActive ? "img" : "";
+
+  const json = props.product.general.description;
+  const description = json.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, "");
+
   return (
     <div className="products">
       <div className="product_item">
