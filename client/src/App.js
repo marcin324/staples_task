@@ -46,6 +46,17 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  handleShowModal = id => {
+    let products = [...this.state.products];
+    const product = products.filter(product => product.id === id);
+    product[0].isActive = true;
+    const selectedProduct = product[0];
+    products.slice(id, 1, selectedProduct);
+    this.setState({
+      products
+    });
+  };
+
   render() {
     const { products } = this.state;
     return (
