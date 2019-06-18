@@ -78,6 +78,28 @@ class App extends Component {
     this.setState({ searchText: e.target.value });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    const { searchText } = this.state;
+    if (searchText.length < 3) return;
+    else {
+      const url = `http://localhost:3005/products?q=${searchText}&_limit=140`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            searchProducts: data.length
+          });
+          const lastIndex = this.state.activePage * this.itemsCountPerPage;
+          const firstIndex = lastIndex - this.itemsCountPerPage;
+          this.setState({
+            products: data.slice(firstIndex, lastIndex),
+            searchText: ""
+          });
+        });
+    }
+  };
+
   handleShowModal = id => {
     let products = [...this.state.products];
     const product = products.filter(product => product.id === id);
