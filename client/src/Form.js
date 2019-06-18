@@ -9,7 +9,7 @@ const Form = props => {
           placeholder="search for anything"
           type="text"
           id="searchText"
-          onChange={e => props.handleChange(e)}
+          onChange={e => props.handleSearchText(e)}
           value={props.searchText}
         />
         <button onSubmit={e => props.handleSubmit(e)}>Search</button>
