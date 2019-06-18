@@ -45,6 +45,35 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  handlePageChange = pageNumber => {
+    this.setState({ activePage: pageNumber });
+    const { searchText } = this.state;
+    if (searchText.length < 3) {
+      const API = "http://localhost:3005/products?_limit=140";
+      fetch(API)
+        .then(response => response.json())
+        .then(data => {
+          const lastIndex = this.state.activePage * this.itemsCountPerPage;
+          const firstIndex = lastIndex - this.itemsCountPerPage;
+          this.setState({
+            products: data.slice(firstIndex, lastIndex)
+          });
+        })
+        .catch(error => console.log(error));
+    } else {
+      const url = `http://localhost:3005/products?q=${searchText}&_limit=140`;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const lastIndex = this.state.activePage * this.itemsCountPerPage;
+          const firstIndex = lastIndex - this.itemsCountPerPage;
+          this.setState({
+            products: data.slice(firstIndex, lastIndex)
+          });
+        });
+    }
+  };
+
   handleShowModal = id => {
     let products = [...this.state.products];
     const product = products.filter(product => product.id === id);
