@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 import Form from "./Form";
 import Cart from "./Cart";
 import Pagination from "react-js-pagination";
-
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 class App extends Component {
