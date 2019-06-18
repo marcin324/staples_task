@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ProductList from "./ProductList";
 
 import "./App.css";
 
@@ -44,7 +45,19 @@ class App extends Component {
   }
 
   render() {
-    return <div>fffff</div>;
+    const { products } = this.state;
+    return (
+      <div>
+        <ProductList
+          products={products}
+          handleShowModal={this.handleShowModal}
+          handleHideModal={this.handleHideModal}
+          shoppingCart={this.state.shoppingCart}
+          handleNumber={this.handleNumber}
+          handleAddToCart={this.handleAddToCart}
+        />
+      </div>
+    );
   }
 }
 
