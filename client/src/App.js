@@ -48,6 +48,12 @@ class App extends Component {
     const { products } = this.state;
     return (
       <div>
+        <Form
+          searchText={this.state.searchText}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          onClick={this.componentDidMount.bind(this)}
+        />
         <ProductList
           products={products}
           handleShowModal={this.handleShowModal}
