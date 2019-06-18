@@ -122,6 +122,18 @@ class App extends Component {
     });
   };
 
+  handleNumberOfItems = (e, id) => {
+    let products = [...this.state.products];
+    const product = products.filter(product => product.id === id);
+    this.activeInput = e.target.value;
+    product[0].activeInput = this.activeInput;
+    const selectedProduct = product[0];
+    products.slice(id, 1, selectedProduct);
+    this.setState({
+      products
+    });
+  };
+
   render() {
     const { products } = this.state;
     return (
@@ -145,7 +157,7 @@ class App extends Component {
           handleShowModal={this.handleShowModal}
           handleHideModal={this.handleHideModal}
           shoppingCart={this.state.shoppingCart}
-          handleNumber={this.handleNumber}
+          handleNumberOfItems={this.handleNumberOfItems}
           handleAddToCart={this.handleAddToCart}
         />
         <Pagination

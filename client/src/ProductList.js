@@ -11,7 +11,7 @@ const ProductList = props => {
       handleShowModal={props.handleShowModal}
       handleHideModal={props.handleHideModal}
       shoppingCart={props.shoppingCart}
-      handleNumber={props.handleNumber}
+      handleNumberOfItems={props.handleNumberOfItems}
       handleAddToCart={props.handleAddToCart}
       activeInput={product.activeInput}
     />

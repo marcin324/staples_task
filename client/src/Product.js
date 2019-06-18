@@ -32,7 +32,7 @@ const Product = props => {
           <p>ID: {props.product.general.presentable_id}</p>
           <CartForm
             shoppingCart={props.shoppingCart}
-            handleNumber={props.handleNumber}
+            handleNumberOfItems={props.handleNumberOfItems}
             handleAddToCart={props.handleAddToCart}
             product={props.product}
             products={props.products}
@@ -63,7 +63,7 @@ const Product = props => {
             <p>ID: {props.product.general.presentable_id}</p>
             <CartForm
               shoppingCart={props.shoppingCart}
-              handleNumber={props.handleNumber}
+              handleNumberOfItems={props.handleNumberOfItems}
               handleAddToCart={props.handleAddToCart}
               product={props.product}
               products={props.products}

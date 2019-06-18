@@ -8,7 +8,7 @@ const CartForm = props => {
         <input
           type="number"
           value={props.activeInput}
-          onChange={e => props.handleNumber(e, props.product.id)}
+          onChange={e => props.handleNumberOfItems(e, props.product.id)}
         />
       </form>
       <button onClick={() => props.handleAddToCart(props.product.id)}>
