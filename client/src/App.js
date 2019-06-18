@@ -17,6 +17,32 @@ class App extends Component {
     this.itemsCountPerPage = 10;
   }
 
+  componentDidMount() {
+    const API = `http://localhost:3005/products?_limit=140`;
+    fetch(API)
+      .then(response => {
+        if (response.status === 200) {
+          return response;
+        }
+        throw Error(response.status);
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          searchProducts: data.length,
+          activePage: 1
+        });
+        console.log(this.state.searchProducts);
+        const lastIndex = this.state.activePage * this.itemsCountPerPage;
+        const firstIndex = lastIndex - this.itemsCountPerPage;
+        this.setState({
+          products: data.slice(firstIndex, lastIndex)
+        });
+      })
+      .catch(error => console.log(error));
+  }
+
   render() {
     return <div>fffff</div>;
   }
