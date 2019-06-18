@@ -31,12 +31,10 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         this.setState({
           searchProducts: data.length,
           activePage: 1
         });
-        console.log(this.state.searchProducts);
         const lastIndex = this.state.activePage * this.itemsCountPerPage;
         const firstIndex = lastIndex - this.itemsCountPerPage;
         this.setState({
@@ -50,6 +48,17 @@ class App extends Component {
     let products = [...this.state.products];
     const product = products.filter(product => product.id === id);
     product[0].isActive = true;
+    const selectedProduct = product[0];
+    products.slice(id, 1, selectedProduct);
+    this.setState({
+      products
+    });
+  };
+
+  handleHideModal = id => {
+    let products = [...this.state.products];
+    const product = products.filter(product => product.id === id);
+    product[0].isActive = "";
     const selectedProduct = product[0];
     products.slice(id, 1, selectedProduct);
     this.setState({
