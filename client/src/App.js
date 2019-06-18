@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductList from "./ProductList";
 import Form from "./Form";
+import Cart from "./Cart";
 
 import "./App.css";
 
@@ -55,6 +56,7 @@ class App extends Component {
           handleChange={this.handleChange}
           onClick={this.componentDidMount.bind(this)}
         />
+        <Cart shoppingCart={this.state.shoppingCart} />
         <ProductList
           products={products}
           handleShowModal={this.handleShowModal}
