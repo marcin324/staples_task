@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ProductList from "./ProductList";
 import Form from "./Form";
 import Cart from "./Cart";
+import Pagination from "react-js-pagination";
 
 import "./App.css";
 
@@ -77,6 +78,13 @@ class App extends Component {
           onClick={this.componentDidMount.bind(this)}
         />
         <Cart shoppingCart={this.state.shoppingCart} />
+        <Pagination
+          activePage={this.state.activePage}
+          itemsCountPerPage={this.itemsCountPerPage}
+          totalItemsCount={this.state.searchProducts}
+          pageRangeDisplayed={5}
+          onChange={this.handlePageChange}
+        />
         <ProductList
           products={products}
           handleShowModal={this.handleShowModal}
@@ -84,6 +92,13 @@ class App extends Component {
           shoppingCart={this.state.shoppingCart}
           handleNumber={this.handleNumber}
           handleAddToCart={this.handleAddToCart}
+        />
+        <Pagination
+          activePage={this.state.activePage}
+          itemsCountPerPage={this.itemsCountPerPage}
+          totalItemsCount={this.state.searchProducts}
+          pageRangeDisplayed={5}
+          onChange={this.handlePageChange}
         />
       </div>
     );
