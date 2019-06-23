@@ -25,7 +25,7 @@ const Product = ({
       <div className="product_item">
         <div className="image_item img-thumbnail">
           <img
-            onClick={() => handleShowActiveModal(product.id)}
+            onClick={() => handleShowActiveModal(product)}
             src={product.images.primary.large}
             alt={product.general.name}
           />
@@ -33,7 +33,7 @@ const Product = ({
         <div className="content">
           <button
             className="btn_show_modal"
-            onClick={() => handleShowActiveModal(product.id)}
+            onClick={() => handleShowActiveModal(product)}
           >
             <p>{product.general.name}</p>
           </button>
@@ -54,7 +54,7 @@ const Product = ({
           <div className="modal_content">
             <span
               className={`btn_hide ${close}`}
-              onClick={() => handleHideActiveModal(product.id)}
+              onClick={() => handleHideActiveModal()}
             >
               x
             </span>
