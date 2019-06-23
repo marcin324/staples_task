@@ -14,10 +14,11 @@ class App extends Component {
       searchProducts: 0,
       searchText: "",
       activePage: 0,
-      shoppingCart: 0
+      shoppingCart: 0,
+      activeModal: null,
+      activeInput: "",
+      numberOfProducts: ""
     };
-    this.activeInput = "";
-    this.isActive = "";
     this.itemsCountPerPage = 10;
   }
 
@@ -100,14 +101,9 @@ class App extends Component {
     }
   };
 
-  handleShowModal = id => {
-    let products = [...this.state.products];
-    const product = products.filter(product => product.id === id);
-    product[0].isActive = true;
-    const selectedProduct = product[0];
-    products.slice(id, 1, selectedProduct);
+  handleShowActiveModal = activeModal => {
     this.setState({
-      products
+      activeModal
     });
   };
 
