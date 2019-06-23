@@ -107,14 +107,9 @@ class App extends Component {
     });
   };
 
-  handleHideModal = id => {
-    let products = [...this.state.products];
-    const product = products.filter(product => product.id === id);
-    product[0].isActive = "";
-    const selectedProduct = product[0];
-    products.slice(id, 1, selectedProduct);
+  handleHideActiveModal = () => {
     this.setState({
-      products
+      activeModal: null
     });
   };
 
