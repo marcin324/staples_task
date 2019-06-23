@@ -7,13 +7,13 @@ const CartForm = props => {
         <label>Quantity:</label>
         <input
           type="number"
-          value={props.activeInput}
-          onChange={e => props.handleNumberOfItems(e, props.product.id)}
+          value={
+            props.product === props.activeInput ? props.numberOfProducts : ""
+          }
+          onChange={e => props.handleGiveQuantity(e, props.product)}
         />
       </form>
-      <button onClick={() => props.handleAddToCart(props.product.id)}>
-        Add to cart
-      </button>
+      <button onClick={() => props.handleAddToCart()}>Add to cart</button>
     </div>
   );
 };
