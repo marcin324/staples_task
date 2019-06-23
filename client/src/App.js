@@ -135,35 +135,47 @@ class App extends Component {
   };
 
   render() {
-    const { products } = this.state;
+    const {
+      searchText,
+      shoppingCart,
+      activePage,
+      searchProducts,
+      activeModal,
+      activeInput,
+      numberOfProducts,
+      products
+    } = this.state;
     return (
       <div>
         <Form
-          searchText={this.state.searchText}
+          searchText={searchText}
           handleSubmit={this.handleSubmit}
           handleSearchText={this.handleSearchText}
           onClick={this.componentDidMount.bind(this)}
         />
-        <Cart shoppingCart={this.state.shoppingCart} />
+        <Cart shoppingCart={shoppingCart} />
         <Pagination
-          activePage={this.state.activePage}
+          activePage={activePage}
           itemsCountPerPage={this.itemsCountPerPage}
-          totalItemsCount={this.state.searchProducts}
+          totalItemsCount={searchProducts}
           pageRangeDisplayed={5}
           onChange={this.handlePageChange}
         />
         <ProductList
           products={products}
-          handleShowModal={this.handleShowModal}
-          handleHideModal={this.handleHideModal}
-          shoppingCart={this.state.shoppingCart}
-          handleNumberOfItems={this.handleNumberOfItems}
+          handleShowActiveModal={this.handleShowActiveModal}
+          handleHideActiveModal={this.handleHideActiveModal}
+          handleGiveQuantity={this.handleGiveQuantity}
           handleAddToCart={this.handleAddToCart}
+          shoppingCart={shoppingCart}
+          activeModal={activeModal}
+          activeInput={activeInput}
+          numberOfProducts={numberOfProducts}
         />
         <Pagination
-          activePage={this.state.activePage}
+          activePage={activePage}
           itemsCountPerPage={this.itemsCountPerPage}
-          totalItemsCount={this.state.searchProducts}
+          totalItemsCount={searchProducts}
           pageRangeDisplayed={5}
           onChange={this.handlePageChange}
         />
