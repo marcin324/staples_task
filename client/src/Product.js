@@ -1,15 +1,23 @@
 import React from "react";
 import CartForm from "./CartForm";
 
-const Product = props => {
-  const activeInput = props.activeInput !== "" ? props.activeInput : "";
+const Product = ({
+  product,
+  activeModal,
+  shoppingCart,
+  handleAddToCart,
+  handleGiveQuantity,
+  activeInput,
+  numberOfProducts,
+  handleShowActiveModal,
+  handleHideActiveModal
+}) => {
+  const modal = product === activeModal ? "show" : "";
+  const overlay = product === activeModal ? "show" : "";
+  const close = product === activeModal ? "btn_close" : "";
+  const img = product === activeModal ? "img" : "";
 
-  const modal = props.isActive ? "show" : "";
-  const overlay = props.isActive ? "show" : "";
-  const close = props.isActive ? "btn_close" : "";
-  const img = props.isActive ? "img" : "";
-
-  const json = props.product.general.description;
+  const json = product.general.description;
   const description = json.replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, "");
 
   return (
@@ -17,26 +25,26 @@ const Product = props => {
       <div className="product_item">
         <div className="image_item img-thumbnail">
           <img
-            onClick={() => props.handleShowModal(props.product.id)}
-            src={props.product.images.primary.large}
-            alt={props.product.general.name}
+            onClick={() => handleShowActiveModal(product.id)}
+            src={product.images.primary.large}
+            alt={product.general.name}
           />
         </div>
         <div className="content">
           <button
             className="btn_show_modal"
-            onClick={() => props.handleShowModal(props.product.id)}
+            onClick={() => handleShowActiveModal(product.id)}
           >
-            <p>{props.product.general.name}</p>
+            <p>{product.general.name}</p>
           </button>
-          <p>ID: {props.product.general.presentable_id}</p>
+          <p>ID: {product.general.presentable_id}</p>
           <CartForm
-            shoppingCart={props.shoppingCart}
-            handleNumberOfItems={props.handleNumberOfItems}
-            handleAddToCart={props.handleAddToCart}
-            product={props.product}
-            products={props.products}
+            product={product}
+            handleGiveQuantity={handleGiveQuantity}
+            handleAddToCart={handleAddToCart}
+            shoppingCart={shoppingCart}
             activeInput={activeInput}
+            numberOfProducts={numberOfProducts}
           />
         </div>
       </div>
@@ -46,28 +54,28 @@ const Product = props => {
           <div className="modal_content">
             <span
               className={`btn_hide ${close}`}
-              onClick={() => props.handleHideModal(props.product.id)}
+              onClick={() => handleHideActiveModal(product.id)}
             >
               x
             </span>
             <div className="image">
               <img
                 className={`${img}`}
-                src={props.product.images.primary.large}
-                alt={props.product.general.name}
+                src={product.images.primary.large}
+                alt={product.general.name}
               />
             </div>
-            <p>{props.product.brand.name}</p>
-            <p>{props.product.general.name}</p>
+            <p>{product.brand.name}</p>
+            <p>{product.general.name}</p>
             <p>{description}</p>
-            <p>ID: {props.product.general.presentable_id}</p>
+            <p>ID: {product.general.presentable_id}</p>
             <CartForm
-              shoppingCart={props.shoppingCart}
-              handleNumberOfItems={props.handleNumberOfItems}
-              handleAddToCart={props.handleAddToCart}
-              product={props.product}
-              products={props.products}
+              product={product}
+              handleGiveQuantity={handleGiveQuantity}
+              handleAddToCart={handleAddToCart}
+              shoppingCart={shoppingCart}
               activeInput={activeInput}
+              numberOfProducts={numberOfProducts}
             />
           </div>
         </div>
