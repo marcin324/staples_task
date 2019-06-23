@@ -5,7 +5,7 @@ const Cart = props => {
     <div className="cart">
       <div className="cart_number">
         {props.shoppingCart}
-        <i class="fas fa-shopping-cart" />
+        <i className="fas fa-shopping-cart" />
       </div>
     </div>
   );
