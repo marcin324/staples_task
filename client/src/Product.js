@@ -42,7 +42,6 @@ const Product = ({
             product={product}
             handleGiveQuantity={handleGiveQuantity}
             handleAddToCart={handleAddToCart}
-            shoppingCart={shoppingCart}
             activeInput={activeInput}
             numberOfProducts={numberOfProducts}
           />
