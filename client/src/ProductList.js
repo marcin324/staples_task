@@ -6,12 +6,12 @@ const ProductList = props => {
     <Product
       key={product.id}
       product={product}
-      shoppingCart={props.shoppingCart}
-      handleAddToCart={props.handleAddToCart}
       handleShowActiveModal={props.handleShowActiveModal}
       handleHideActiveModal={props.handleHideActiveModal}
-      activeModal={props.activeModal}
       handleGiveQuantity={props.handleGiveQuantity}
+      handleAddToCart={props.handleAddToCart}
+      shoppingCart={props.shoppingCart}
+      activeModal={props.activeModal}
       activeInput={props.activeInput}
       numberOfProducts={props.numberOfProducts}
     />
