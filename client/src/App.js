@@ -121,22 +121,16 @@ class App extends Component {
     });
   };
 
-  handleAddToCart = id => {
-    if (!this.activeInput || this.activeInput < 1) return;
+  handleAddToCart = () => {
+    const { numberOfProducts } = this.state;
+    if (numberOfProducts < 1) return;
     else {
-      let products = [...this.state.products];
-      const activeInput = parseInt(this.activeInput);
+      const number = parseInt(numberOfProducts);
       this.setState(prevState => ({
-        shoppingCart: prevState.shoppingCart + activeInput
+        shoppingCart: prevState.shoppingCart + number,
+        activeInput: "",
+        numberOfProducts: ""
       }));
-      const product = products.filter(product => product.id === id);
-      this.activeInput = "";
-      product[0].activeInput = this.activeInput;
-      const selectedProduct = product[0];
-      products.slice(id, 1, selectedProduct);
-      this.setState({
-        products
-      });
     }
   };
 
