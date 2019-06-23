@@ -113,15 +113,11 @@ class App extends Component {
     });
   };
 
-  handleNumberOfItems = (e, id) => {
-    let products = [...this.state.products];
-    const product = products.filter(product => product.id === id);
-    this.activeInput = e.target.value;
-    product[0].activeInput = this.activeInput;
-    const selectedProduct = product[0];
-    products.slice(id, 1, selectedProduct);
+  handleGiveQuantity = (e, activeInput) => {
+    const numberOfProducts = e.target.value;
     this.setState({
-      products
+      activeInput,
+      numberOfProducts
     });
   };
 
