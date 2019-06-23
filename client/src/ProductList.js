@@ -5,15 +5,15 @@ const ProductList = props => {
   const products = props.products.map(product => (
     <Product
       key={product.id}
-      products={props.products}
       product={product}
-      isActive={product.isActive}
-      handleShowModal={props.handleShowModal}
-      handleHideModal={props.handleHideModal}
       shoppingCart={props.shoppingCart}
-      handleNumberOfItems={props.handleNumberOfItems}
       handleAddToCart={props.handleAddToCart}
-      activeInput={product.activeInput}
+      handleShowActiveModal={props.handleShowActiveModal}
+      handleHideActiveModal={props.handleHideActiveModal}
+      activeModal={props.activeModal}
+      handleGiveQuantity={props.handleGiveQuantity}
+      activeInput={props.activeInput}
+      numberOfProducts={props.numberOfProducts}
     />
   ));
 
